@@ -7,8 +7,8 @@ if(isset($_POST["create"])) {
 	$product = new Product($_POST, $_FILES);
 	$productData = $product->getData();
 	$_SESSION[$session::DATA][$_POST['sku']] = $productData;
-	header('../../:index.php');
 } elseif($_POST['clear']){
 	$_SESSION[$session::DATA] = null;
 }
+header('Location: ' . $_SERVER['HTTP_REFERER']);
 ?>
